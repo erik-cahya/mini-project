@@ -11,12 +11,12 @@ import time
 
 try:
     # Setup
-    service = Service("/Users/erikcahya/Documents/Project/chromedriver/chromedriver")
+    service = Service("/Users/erikcahya/Documents/Project/chromedriver/chromedriver") # chromedriver location path
     driver = webdriver.Chrome(service=service)
     driver.maximize_window()
 
     # Login
-    driver.get("http://localhost:8000/login")
+    driver.get("http://localhost:8000/login") # url website
     WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.NAME, "email"))).send_keys("admin@gmail.com")
     driver.find_element(By.NAME, "password").send_keys("admin123lsp")
@@ -26,9 +26,9 @@ try:
     login_button.click()
 
     # Isi Form
-    df = pd.read_excel("data.xlsx")
+    df = pd.read_excel("data.xlsx") # excel file location path
     for index, row in df.iterrows():
-        driver.get("http://localhost:8000/manajemen/create")
+        driver.get("http://localhost:8000/manajemen/create") # url website
         
         # Tunggu form ready
         WebDriverWait(driver, 10).until(
